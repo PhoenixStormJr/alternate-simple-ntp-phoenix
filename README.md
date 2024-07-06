@@ -3,9 +3,13 @@ NTP (Network Time Protocol) isn't working for me on Linux. So I made my own! Thi
 
 Instructions to install:
 
-download here:
+1: download here:
 
 https://github.com/PhoenixStormJr/alternate-simple-ntp-phoenix/archive/refs/heads/main.zip
+
+2: Copy SetTime.py to /home/UserName/Phoenix_NTP/SetTime.py. If the folder does not exist, create it.
+
+
 
 
 Google colab to test it:
