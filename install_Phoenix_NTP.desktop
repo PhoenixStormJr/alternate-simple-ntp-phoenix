@@ -1,0 +1,10 @@
+[Desktop Entry]
+Version=1.0
+Type=Application
+Name=install_Phoenix_NTP
+Comment=installs Phoenix's easy and simple NTP made with python
+Exec=bash ./scripts/install.sh
+Icon=system-software-install
+Path=
+Terminal=true
+StartupNotify=false
