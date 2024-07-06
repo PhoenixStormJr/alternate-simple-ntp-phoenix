@@ -11,7 +11,7 @@ https://github.com/PhoenixStormJr/alternate-simple-ntp-phoenix/archive/refs/head
 
 3: Copy SetTime.desktop to /home/UserName/.config/autostart/SetTime.desktop and (optionally) copy SetTime.desktop to /home/UserName/Desktop/SetTime.desktop
 
-(I am making a setup script, but that's the gist of it.)
+Oooooooorrrrrr just double click install_Phoenix_NTP.desktop..... yeah, I made an install script.
 
 # Google colab to test it:
 
