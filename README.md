@@ -5,7 +5,7 @@ Instructions to install:
 
 download here:
 
-
+https://github.com/PhoenixStormJr/alternate-simple-ntp-phoenix/archive/refs/heads/main.zip
 
 
 Google colab to test it:
