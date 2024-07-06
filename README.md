@@ -9,9 +9,10 @@ https://github.com/PhoenixStormJr/alternate-simple-ntp-phoenix/archive/refs/head
 
 2: Copy SetTime.py to /home/UserName/Phoenix_NTP/SetTime.py. If the folder does not exist, create it.
 
+3: Copy SetTime.desktop to /home/UserName/.config/autostart/SetTime.desktop and (optionally) copy SetTime.desktop to /home/UserName/Desktop/SetTime.desktop
 
+(I am making a setup script, but that's the gist of it.)
 
-
-Google colab to test it:
+# Google colab to test it:
 
 https://colab.research.google.com/github/PhoenixStormJr/alternate-simple-ntp-phoenix/blob/main/Time_with_server_python.ipynb
