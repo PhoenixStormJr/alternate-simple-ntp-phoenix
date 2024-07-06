@@ -1,0 +1,10 @@
+[Desktop Entry]
+Version=1.0
+Type=Application
+Name=Set Time
+Comment=Sets the time of your computer by running /home/phoenix/Phoenix_NTP/SetTime.py. Please edit the first variable of that file to change the time if you prefer.
+Exec=sudo python ~/Phoenix_NTP/SetTime.py
+Icon=time-admin
+Path=~/Phoenix_NTP/
+Terminal=true
+StartupNotify=false
