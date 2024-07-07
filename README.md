@@ -21,4 +21,4 @@ https://colab.research.google.com/github/PhoenixStormJr/alternate-simple-ntp-pho
 
 Now I've re programmed it in Bash!:
 
-https://colab.research.google.com/github/PhoenixStormJr/alternate-simple-ntp-phoenix/blob/main/Time_with_server_bash.ipynb
+https://colab.research.google.com/github/PhoenixStormJr/alternate-simple-ntp-phoenix/blob/main/Time_with_server_bash_2.ipynb
