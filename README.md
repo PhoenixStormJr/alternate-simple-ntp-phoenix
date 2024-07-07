@@ -15,4 +15,10 @@ Oooooooorrrrrr just double click install_Phoenix_NTP.desktop..... yeah, I made a
 
 # Google colab to test it:
 
+Python:
+
 https://colab.research.google.com/github/PhoenixStormJr/alternate-simple-ntp-phoenix/blob/main/Time_with_server_python.ipynb
+
+Now I've re programmed it in Bash!:
+
+https://colab.research.google.com/github/PhoenixStormJr/alternate-simple-ntp-phoenix/blob/main/Time_with_server_bash.ipynb
