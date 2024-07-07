@@ -3,6 +3,8 @@ NTP (Network Time Protocol) isn't working for me on Linux. So I made my own! Thi
 
 Instructions to install:
 
+(Either just click the install script or...)
+
 1: download here:
 
 https://github.com/PhoenixStormJr/alternate-simple-ntp-phoenix/archive/refs/heads/main.zip
