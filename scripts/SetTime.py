@@ -13,26 +13,15 @@ def GetTime(Format,Add_Hours=0):
   }
   mystr = urllib.request.urlopen(urllib.request.Request("https://time.is/New_York", headers=headers)).read().decode("utf8")
   location = mystr.find('<time id="clock">')
-  new_str = ""
-  for x in range(83):
-    new_str += mystr[location+x]
-    x = x + 1
-  time = ""
-  x = 17
-  while x < 25:
-    time += new_str[x]
-    x = x + 1
-  AMPM = ""
-  x = 81
-  while x < 83:
-    AMPM += new_str[x]
-    x = x + 1
+  new_str = mystr[location:location+83]
+  time = new_str[17:25]
+  AMPM = new_str[81:83]
   #Time is "time" and AMPM is "AMPM"
   #Split time into hour minute second
   timesplit = time.split(":")
   hour = int(timesplit[0])
-  minute = int(timesplit[1])
-  second = int(timesplit[2])
+  minute = timesplit[1]
+  second = timesplit[2]
   #Now convert to military time
   if(AMPM == "PM"):
     hour = hour + 12
@@ -43,30 +32,18 @@ def GetTime(Format,Add_Hours=0):
   if(Format==1):
     if(hour < 10):
       hour = "0" + str(hour)
-    if(minute < 10):
-      minute = "0" + str(minute)
-    if(second < 10):
-      second = "0" + str(second)
-    time2= f"{str(hour)}:{str(minute)}:{str(second)}"
+    time2= f"{hour}:{minute}:{second}"
     return time2
   elif(Format==2):
     if(hour > 12):
       hour = hour - 12
       if(hour < 10):
         hour = "0" + str(hour)
-      if(minute < 10):
-        minute = "0" + str(minute)
-      if(second < 10):
-        second = "0" + str(second)
-      time2= f"{str(hour)}:{str(minute)}:{str(second)}PM"
+      time2= f"{hour}:{minute}:{second}PM"
     else:
       if(hour < 10):
         hour = "0" + str(hour)
-      if(minute < 10):
-        minute = "0" + str(minute)
-      if(second < 10):
-        second = "0" + str(second)
-      time2= f"{str(hour)}:{str(minute)}:{str(second)}AM"
+      time2= f"{hour}:{minute}:{second}AM"
     return time2
 
 time = GetTime(2,Add_Hours)
