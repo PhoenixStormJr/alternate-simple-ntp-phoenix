@@ -19,7 +19,7 @@ Oooooooorrrrrr just double click install_Phoenix_NTP.desktop..... yeah, I made a
 
 Python:
 
-https://colab.research.google.com/github/PhoenixStormJr/alternate-simple-ntp-phoenix/blob/main/Time_with_server_python.ipynb
+https://colab.research.google.com/github/PhoenixStormJr/alternate-simple-ntp-phoenix/blob/main/Time_with_server_python_2.ipynb
 
 Now I've re programmed it in Bash!:
 
