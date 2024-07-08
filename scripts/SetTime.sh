@@ -1,56 +1,91 @@
 #!/bin/bash
 
 #ONLY CHANGE THIS LINE HERE:
-Add_Hours=23
+zone=8
 
 
 
 
 function FindStringInString {
-  for (( x=0; x<${#1}; x++ )); do
-    if [ "${1:$x:${#2}}" = "$2" ]; then
-      echo $x
-      break
-    fi
-  done
+  rest=${1#*$2}
+  echo $(( ${#1} - ${#rest} - ${#2} ))
 }
 
 function GetTime {
-  mystr=$(wget --user-agent="Mozilla" -q -O - https://time.is/New_York)
+  zoneSites=("https://time.is/Baker_Island" "https://time.is/Pago_Pago" "https://time.is/Avarua" "https://time.is/Atuona" "https://time.is/Rikitea" "https://time.is/Alaska" "https://time.is/Los_Angeles" "https://time.is/Albuquerque" "https://time.is/Chicago" "https://time.is/New_York" "https://time.is/S%C3%A3o_Paulo" "https://time.is/Newfoundland_and_Labrador" "https://time.is/Saint_Pierre_and_Miquelon" "https://time.is/Praia" "https://time.is/Bobo-Dioulasso" "https://time.is/Algiers" "https://time.is/Durr%C3%ABs" "https://time.is/Manama" "https://time.is/Isfahan" "https://time.is/Yerevan" "https://time.is/Kabul" "https://time.is/Almaty" "https://time.is/Ahmedabad" "https://time.is/Biratnagar" "https://time.is/Chittagong" "https://time.is/Naypyidaw" "https://time.is/Phnom_Penh" "https://time.is/Mandurah" "https://time.is/Ambon_City" "https://time.is/Adelaide" "https://time.is/Australian_Capital_Territory" "https://time.is/Palikir" "https://time.is/Suva" "https://time.is/Apia" "https://time.is/Tabwakea_Village")
+  mystr=$(wget --user-agent="Mozilla" -q -O - ${zoneSites[$1]})
   search1='<time id="clock">'
   location=$(FindStringInString "${mystr}" "${search1}")
-  new_str="${mystr:$location:83}"
-  time="${new_str:17:8}"
-  AMPM="${new_str:81:2}"
-  IFS=':' read -r -a timesplit <<< "$time"
-  hour="${timesplit[0]}"
-  minute="${timesplit[1]}"
-  second="${timesplit[2]}"
-  #convert to military time
-  if [ "$AMPM" = "PM" ]; then
-    hour=$(($hour + 12))
-  fi
-  #Add Hours:
-  hour=$(($hour + $Add_Hours))
-  if [ "$hour" -gt "24" ]; then
-    hour=$(($hour - 24))
-  fi
-  if [ "$1" -eq "1" ]; then
-    if [ "$hour" -lt "10" ]; then
-      hour="0${hour}"
+  location2=$(($location + 81))
+  AMPM="${mystr:$location2:2}"
+  location2=$(($location + 17))
+  time_str="${mystr:$location2:8}"
+  if [[ "$2" -eq 2 ]]; then
+    IFS=':' read -r -a time_split <<< "$time_str"
+    if [ "$AMPM" = "PM" ]; then
+      hour=$((${time_split[0]} + 12))
+    else
+      hour=${time_split[0]}
     fi
-    echo "${hour}:${minute}:${second}"
-  elif [[ "$1" == "2" ]]; then
-    if [ "$hour" -gt "12" ]; then
-      hour=$(($hour - 12))
-    fi
-    if [ "$hour" -lt "10" ]; then
-      hour="0${hour}"
-    fi
-    echo "${hour}:${minute}:${second}${AMPM}"
+    minute=${time_split[1]}
+    second=${time_split[2]}
+    time="${hour}:${minute}:${second}"
+  elif [[ "$2" -eq 1 ]]; then
+    time="${time_str}${AMPM}"
   fi
+  search1='title="Press for calendar">'
+  location=$(FindStringInString "${mystr}" "${search1}")
+  location2=$(($location + 35))
+  date_str="${mystr:$location2:12}"
+  date_str="${date_str/,/}"
+  IFS=' ' read -r -a date_split <<< "$date_str"
+  month=${date_split[0]}
+  day=${date_split[1]}
+  year=${date_split[2]}
+  if [ "$month" = "January" ]; then
+    month2="01"
+  fi
+  if [ "$month" = "February" ]; then
+    month2="02"
+  fi
+  if [ "$month" = "March" ]; then
+    month2="03"
+  fi
+  if [ "$month" = "April" ]; then
+    month2="04"
+  fi
+  if [ "$month" = "May" ]; then
+    month2="05"
+  fi
+  if [ "$month" = "June" ]; then
+    month2="06"
+  fi
+  if [ "$month" = "July" ]; then
+    month2="07"
+  fi
+  if [ "$month" = "August" ]; then
+    month2="08"
+  fi
+  if [ "$month" = "September" ]; then
+    month2="09"
+  fi
+  if [ "$month" = "October" ]; then
+    month2="10"
+  fi
+  if [ "$month" = "November" ]; then
+    month2="11"
+  fi
+  if [ "$month" = "December" ]; then
+    month2="12"
+  fi
+  date="${year}-${month2}-${day}"
+  echo "${date} ${time}"
+
 }
 
-time=$(GetTime 2)
-echo "The time is: ${time}"
-sudo date +"%T%p" -s $time
+
+double_quote='"'
+Date_And_Time=$(GetTime $zone 2)
+echo "the date and time are: ${double_quote}${Date_And_Time}${double_quote}"
+echo "running command: [date -s ${double_quote}${Date_And_Time}${double_quote}]"
+sudo date -s "${Date_And_Time}"
