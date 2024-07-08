@@ -17,9 +17,9 @@ Oooooooorrrrrr just double click install_Phoenix_NTP.desktop..... yeah, I made a
 
 # Google colab to test it:
 
-Python:
+Python updated for date now:
 
-https://colab.research.google.com/github/PhoenixStormJr/alternate-simple-ntp-phoenix/blob/main/Time_with_server_python_2.ipynb
+https://colab.research.google.com/github/PhoenixStormJr/alternate-simple-ntp-phoenix/blob/main/Date_And_Time_with_server_python.ipynb
 
 Now I've re programmed it in Bash!:
 
