@@ -35,8 +35,21 @@ function GetTime {
   fi
   search1='title="Press for calendar">'
   location=$(FindStringInString "${mystr}" "${search1}")
-  location2=$(($location + 35))
-  date_str="${mystr:$location2:12}"
+  location2=$(($location + 27))
+  location3=$(($location + 27))
+  while [ "${mystr:$location3:1}" != "<" ]
+  do
+    location3=$(( $location3 + 1 ))
+  done
+  amount=$(( $location3 - $location2 ))
+  date_str="${mystr:$location2:$amount}"
+  date_str="${date_str/'Sunday, '/}"
+  date_str="${date_str/'Monday, '/}"
+  date_str="${date_str/'Tuesday, '/}"
+  date_str="${date_str/'Wednesday, '/}"
+  date_str="${date_str/'Thursday, '/}"
+  date_str="${date_str/'Friday, '/}"
+  date_str="${date_str/'Saturday, '/}"
   date_str="${date_str/,/}"
   IFS=' ' read -r -a date_split <<< "$date_str"
   month=${date_split[0]}
