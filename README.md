@@ -13,7 +13,9 @@ https://github.com/PhoenixStormJr/alternate-simple-ntp-phoenix/archive/refs/head
 
 3: Copy SetTime.desktop to /home/UserName/.config/autostart/SetTime.desktop and (optionally) copy SetTime.desktop to /home/UserName/Desktop/SetTime.desktop
 
-4 (optional): Copy the file Allow_All_Users_To_Change_Date_And_Time to the folder /etc/sudoers.d. This will allow anyone to set the time without a password.
+4: Sometimes ntp is broken, so let's turn it off with this command: sudo timedatectl set-ntp false
+
+5 (optional): Copy the file Allow_All_Users_To_Change_Date_And_Time to the folder /etc/sudoers.d. This will allow anyone to set the time without a password.
 
 Oooooooorrrrrr just double click install_Phoenix_NTP.desktop..... yeah, I made an install script.
 
