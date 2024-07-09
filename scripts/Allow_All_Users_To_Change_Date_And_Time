@@ -1,0 +1,3 @@
+#Allow all users to change date and time:
+
+ALL ALL=NOPASSWD: /usr/bin/date
