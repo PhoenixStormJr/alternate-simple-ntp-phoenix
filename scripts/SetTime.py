@@ -28,7 +28,20 @@ def GetTime(zone,format):
   elif(format == 1):
     time = time_str+AMPM
   location = mystr.find('title="Press for calendar">')
-  date_str = mystr[location+35:location+47]
+  location2 = location+27
+  while(mystr[location2] != '<'):
+    location2 += 1
+  date_str = mystr[location+27:location2]
+  date_str = date_str.replace('Sunday, ','')
+  date_str = date_str.replace('Monday, ','')
+  date_str = date_str.replace('Tuesday, ','')
+  date_str = date_str.replace('Wednesday, ','')
+  date_str = date_str.replace('Thursday, ','')
+  date_str = date_str.replace('Friday, ','')
+  date_str = date_str.replace('Saturday, ','')
+  date_str = date_str.replace('Monday, ','')
+  date_str = date_str.replace('Monday, ','')
+  print(date_str)
   date_str = date_str.replace(',','')
   date_split = date_str.split(' ')
   month = date_split[0]
