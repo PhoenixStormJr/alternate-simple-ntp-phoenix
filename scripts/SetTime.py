@@ -1,3 +1,4 @@
+#!/usr/bin/env python
 #ONLY CHANGE THIS VARIABLE:
 zone = 8
 
