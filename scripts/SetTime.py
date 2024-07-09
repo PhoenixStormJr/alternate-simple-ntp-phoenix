@@ -79,4 +79,4 @@ def GetTime(zone,format):
 Date_And_Time=GetTime(zone,2)
 print(f"Date and Time is: \"{Date_And_Time}\"")
 print(f"running command: date -s '{Date_And_Time}'")
-os.system(f"date -s '{Date_And_Time}'")
+os.system(f"sudo date -s '{Date_And_Time}'")
