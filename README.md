@@ -1,7 +1,7 @@
 # alternate-simple-ntp-phoenix
 NTP (Network Time Protocol) isn't working for me on Linux. So I made my own! This is written in python and bash. It's an extremely simple network time protocol, that gets the time from the internet, rather than your computer.
 
-If you find a bug, please report it on the [Issues](https://github.com/PhoenixStormJr/alternate-simple-ntp-phoenix/issues) tab.
+If you find a bug, please report it on the [Issues](https://github.com/PhoenixStormJr/alternate-simple-ntp-phoenix/issues) tab. I like [feedback](https://github.com/PhoenixStormJr/alternate-simple-ntp-phoenix/discussions) so if you found this program useful, leave a comment! Not for the algorithm just... to make me happy please.
 
 Instructions to install:
 
