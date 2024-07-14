@@ -23,7 +23,9 @@ function GetTime {
   if [[ "$2" -eq 2 ]]; then
     IFS=':' read -r -a time_split <<< "$time_str"
     if [ "$AMPM" = "PM" ]; then
-      hour=$((${time_split[0]} + 12))
+      hour_temp=${time_split[0]}
+      hour_temp=${hour_temp#0}
+      hour=$((${hour_temp[0]} + 12))
     else
       hour=${time_split[0]}
     fi
