@@ -29,4 +29,4 @@ https://colab.research.google.com/github/PhoenixStormJr/alternate-simple-ntp-pho
 
 Now I've re programmed it in Bash! And now updated it to do the date, and it's faster! I think maybe bash should be the default, since some linux computers don't have python?:
 
-https://colab.research.google.com/github/PhoenixStormJr/alternate-simple-ntp-phoenix/blob/main/Date_And_Time_with_server_bash_2.ipynb
+https://colab.research.google.com/github/PhoenixStormJr/alternate-simple-ntp-phoenix/blob/main/Date_And_Time_with_server_bash_3.ipynb
