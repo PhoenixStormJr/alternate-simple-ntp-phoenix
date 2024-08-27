@@ -1,4 +1,5 @@
 #!/usr/bin/env python
+
 #ONLY CHANGE THIS VARIABLE:
 zone = 8
 
@@ -19,9 +20,12 @@ def GetTime(zone,format):
   time_str = mystr[location+17:location+25]
   if(format == 2):
     time_split = time_str.split(':')
-    if(AMPM == 'PM'):
+    if(AMPM == 'PM' and (not time_split[0] == '12')):
       hour = str(int(time_split[0])+12)
+    elif(time_split[0] == '12' and AMPM == 'AM'):
+      hour = '00'
     else:
+      print("DEBUG3")
       hour = time_split[0]
     minute = time_split[1]
     second = time_split[2]
@@ -80,4 +84,4 @@ def GetTime(zone,format):
 Date_And_Time=GetTime(zone,2)
 print(f"Date and Time is: \"{Date_And_Time}\"")
 print(f"running command: date -s '{Date_And_Time}'")
-os.system(f"sudo date -s '{Date_And_Time}'")
+os.system(f"date -s '{Date_And_Time}'")
