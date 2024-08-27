@@ -1,3 +1,4 @@
+#!/bin/bash
 
 #ONLY CHANGE THIS LINE HERE:
 zone=8
