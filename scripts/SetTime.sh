@@ -1,4 +1,3 @@
-#!/bin/bash
 
 #ONLY CHANGE THIS LINE HERE:
 zone=8
@@ -22,10 +21,12 @@ function GetTime {
   time_str="${mystr:$location2:8}"
   if [[ "$2" -eq 2 ]]; then
     IFS=':' read -r -a time_split <<< "$time_str"
-    if [ "$AMPM" = "PM" ]; then
+    if [ "$AMPM" = "PM" ] && [ ${time_split[0]} -ne 12 ]; then
       hour_temp=${time_split[0]}
       hour_temp=${hour_temp#0}
       hour=$((${hour_temp[0]} + 12))
+    elif [ "$AMPM" = "AM" ] && [ ${time_split[0]} -eq 12 ]; then
+      hour="00"
     else
       hour=${time_split[0]}
     fi
